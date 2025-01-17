@@ -11,15 +11,22 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var VIewTotalBarang: UILabel!
-    
     @IBOutlet weak var ViewBarangKadaluarsaTerdekat: UILabel!
+    @IBOutlet weak var ViewDaftarBarang: UILabel!
+    @IBOutlet weak var ViewTanggalKadaluarsaTerdekat: UILabel!
+    @IBOutlet weak var ViewBarangTop1: UILabel!
+    @IBOutlet weak var ViewGambarTop1: UIImageView!
+    @IBOutlet weak var ViewBarangTop2: UILabel!
+    @IBOutlet weak var ViewGambarTop2: UIImageView!
+    @IBOutlet weak var ViewBarangTop3: UILabel!
+    @IBOutlet weak var ViewGambarTop3: UIImageView!
+    @IBOutlet weak var ViewUsername: UILabel!
     
     override func viewDidLoad()
     {            super.viewDidLoad()
         
     }
     
-
     @IBAction func ProfilePIcturePressed(_ sender: UIButton) {
         print("Profile picture Pressed")
     }
