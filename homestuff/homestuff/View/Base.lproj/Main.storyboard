@@ -600,11 +600,9 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< HEAD
         <image name="clock" catalog="system" width="128" height="123"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-=======
         <image name="appleIcon" width="512" height="512"/>
         <image name="bell.circle" catalog="system" width="128" height="123"/>
         <image name="clock" catalog="system" width="128" height="123"/>
@@ -613,7 +611,6 @@
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <image name="person" catalog="system" width="128" height="121"/>
->>>>>>> 5baa1dc8a5d8a482d7eaef30e5907f8f160e4960
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <systemColor name="linkColor">
