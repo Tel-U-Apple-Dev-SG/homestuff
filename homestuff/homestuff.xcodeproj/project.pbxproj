@@ -17,6 +17,7 @@
 		1B19A8E52D39FB1D00977CAB /* homestuffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19A8E42D39FB1D00977CAB /* homestuffUITests.swift */; };
 		1B19A8E72D39FB1D00977CAB /* homestuffUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19A8E62D39FB1D00977CAB /* homestuffUITestsLaunchTests.swift */; };
 		1B561DB72D3B70C900E36308 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B561DB62D3B70C900E36308 /* LoginController.swift */; };
+		1B561DB92D3BA3C600E36308 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B561DB82D3BA3C600E36308 /* RegisterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1B19A8E42D39FB1D00977CAB /* homestuffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homestuffUITests.swift; sourceTree = "<group>"; };
 		1B19A8E62D39FB1D00977CAB /* homestuffUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homestuffUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1B561DB62D3B70C900E36308 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		1B561DB82D3BA3C600E36308 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				1B19A8C72D39FB1B00977CAB /* ViewController.swift */,
 				1B561DB62D3B70C900E36308 /* LoginController.swift */,
+				1B561DB82D3BA3C600E36308 /* RegisterController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B561DB92D3BA3C600E36308 /* RegisterController.swift in Sources */,
 				1B19A8C82D39FB1B00977CAB /* ViewController.swift in Sources */,
 				1B561DB72D3B70C900E36308 /* LoginController.swift in Sources */,
 				1B19A8C42D39FB1B00977CAB /* AppDelegate.swift in Sources */,
