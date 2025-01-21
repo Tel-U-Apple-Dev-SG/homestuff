@@ -181,14 +181,3 @@ struct rememberMeToggleStyle: ToggleStyle {
         }
     }
 }
-
-struct showPasswordToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        Button(action: {
-            configuration.isOn.toggle()
-        }) {
-            Image(systemName: configuration.isOn ? "eye.slash.fill" : "eye.fill")
-                .foregroundColor(.gray)
-        }
-    }
-}

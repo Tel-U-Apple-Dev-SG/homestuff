@@ -16,11 +16,16 @@ struct ContentView: View {
                 }
             SearchView()
                 .tabItem {
+<<<<<<< HEAD
+                    Label("Search", systemImage: "magnifyingglass.circle")
+                }.toolbarBackground(Color.blue, for: .tabBar)
+=======
                     Label("Search", systemImage: "magnifyingglass")
                 }
+>>>>>>> be8a1f75a1bd36a5f84581d89ae5a8e2794118d5
             AddItemView()
                 .tabItem {
-                    Image(systemName: "plus")
+                    Label("Add Item", systemImage: "plus")
                 }
             Text("History View")
                 .tabItem {
