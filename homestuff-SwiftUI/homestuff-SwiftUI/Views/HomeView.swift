@@ -19,6 +19,7 @@ struct HomeView: View {
                             endPoint: .bottom
                         )
                     )
+                    
                     .frame(height: 120)
                     .shadow(radius: 5)
                 

@@ -24,10 +24,7 @@ struct AddItemView: View {
                         .padding(.bottom, 24)
                     Spacer()
                 }
-                .background(LinearGradient(
-                    gradient: Gradient(colors: [Color.yellow, Color.orange]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing))
+                .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing))
 //                Spacer()
                 VStack(spacing: 16) {
                     HStack {
