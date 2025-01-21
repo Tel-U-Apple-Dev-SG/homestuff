@@ -57,8 +57,13 @@ struct ProfileView: View {
                         .foregroundColor(.orange))
             }
             Spacer()
-            VStack{
+            VStack(spacing : 16){
+                Button("Edit Profile") {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                }
                 
+                
+            
             }
             
         }

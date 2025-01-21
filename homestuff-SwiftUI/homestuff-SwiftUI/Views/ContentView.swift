@@ -16,7 +16,7 @@ struct ContentView: View {
                 }
             SearchView()
                 .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
+                    Label("Search", systemImage: "magnifyingglass.circle")
                 }.toolbarBackground(Color.blue, for: .tabBar)
             AddItemView()
                 .tabItem {
