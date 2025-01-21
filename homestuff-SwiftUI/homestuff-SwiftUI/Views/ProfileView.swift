@@ -62,7 +62,6 @@ struct ProfileView: View {
                     /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                 }
                 
-                
             
             }
             
