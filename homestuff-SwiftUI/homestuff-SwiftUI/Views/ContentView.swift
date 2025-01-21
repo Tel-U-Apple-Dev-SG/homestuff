@@ -10,21 +10,21 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-          HomeView()
+            HomeView()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
             SearchView()
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
-                }.toolbarBackground(Color.blue, for: .tabBar)
+                }
             AddItemView()
                 .tabItem {
-                    Image(systemName: "plus")
+                    Label("Add Item", systemImage: "plus")
                 }
             Text("History View")
                 .tabItem {
-                    Label("history", systemImage: "clock")
+                    Label("History", systemImage: "clock")
                 }
             ProfileView()
                 .tabItem {
