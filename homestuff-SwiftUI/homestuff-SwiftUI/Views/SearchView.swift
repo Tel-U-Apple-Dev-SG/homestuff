@@ -9,74 +9,93 @@ import SwiftUI
 
 struct SearchView: View {
     var body: some View {
-        VStack {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.orange, Color.yellow]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                    .frame(height: 120)
-                    .shadow(radius: 5)
+        ZStack {
+            
+            VStack {
+                headerView()
+                    .padding(.bottom)
                 
                 HStack {
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .clipShape(Circle())
-                        .padding(.leading)
-                    
-                    VStack(alignment: .leading) {
-                        Text("Welcome back,")
-                            .font(.caption)
-                            .foregroundColor(.white)
-                        Text("Alya Salma Khoerunnisaa!")
-                            .font(.headline)
-                            .bold()
-                            .foregroundColor(.white)
-                    }
+                    Text("Daftar barang")
+                        .font(.headline)
                     Spacer()
+                    
+                    TextField("Cari barang"  , text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).textFieldStyle(.roundedBorder)
+                    
+                    .padding(.horizontal)
+                
                 }
-            }
-            HStack {
-                Text("Daftar barang")
-                    .font(.headline)
-                Spacer()
-                Image(systemName: "xmark.circle.fill")
-            }
-            .padding(.horizontal)
-            ScrollView{
-                VStack {
-                    ForEach(0..<7) { index in
-                        HStack {
-                            Image("snack_image")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                            
-                            Text("\(index * 100 + 21) Days left")
-                                .font(.headline)
-                                .padding(.leading)
-                            
-                            Spacer()
-                        }
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
-                        .padding(.horizontal)
-                    }
+                ScrollView {
+                    itemListView()
                 }
+                .padding(.top, 8)
             }
         }
+        
+        
+      
     }
-}
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
+    
+    struct SearchView_Previews: PreviewProvider {
+        static var previews: some View {
+            SearchView()
+        }
+        
     }
+    func headerView() -> some View {
+       ZStack {
+           RoundedRectangle(cornerRadius: 20)
+               .fill(
+                LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
+                   )
+               .frame(height: 120)
+               .shadow(radius: 5)
+           
+           HStack {
+               Image(systemName: "person.crop.circle.fill")
+                   .resizable()
+                   .frame(width: 60, height: 60)
+                   .clipShape(Circle())
+                   .padding(.leading)
+               
+               VStack(alignment: .leading) {
+                   Text("Welcome back,")
+                       .font(.caption)
+                       .foregroundColor(.white)
+                   Text("Alya Salma Khoerunnisaa!")
+                       .font(.headline)
+                       .bold()
+                       .foregroundColor(.white)
+               }
+               Spacer()
+           }
+           .padding(.horizontal)
+       }
+   }
+   
+   
+   func itemListView() -> some View {
+       VStack {
+           ForEach(0..<7) { index in
+               HStack {
+                   Image("snack_image")
+                       .resizable()
+                       .frame(width: 60, height: 60)
+                       .clipShape(RoundedRectangle(cornerRadius: 10))
+                   
+                   Text("\(index * 100 + 21) Days left")
+                       .font(.headline)
+                       .padding(.leading)
+                   
+                   Spacer()
+               }
+               .padding()
+               .background(Color(.systemGray6))
+               .cornerRadius(10)
+               .shadow(radius: 2)
+               .padding(.horizontal)
+           }
+       }
+   }
+    
 }

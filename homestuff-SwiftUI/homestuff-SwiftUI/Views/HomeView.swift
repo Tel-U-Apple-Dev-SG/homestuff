@@ -13,14 +13,11 @@ struct HomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.orange, Color.yellow]),
-                            startPoint: .top,
-                            endPoint: .bottom
+                     LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
                         )
-                    )
                     .frame(height: 120)
                     .shadow(radius: 5)
+                  
                 
                 HStack {
                     Image(systemName: "person.crop.circle.fill")
@@ -90,14 +87,15 @@ struct HomeView: View {
                                 Spacer()
                             }
                             .padding()
-                            .background(Color.white)
+                            .background(Color(.systemGray6))
+                           
                             .cornerRadius(10)
                             .shadow(radius: 2)
                             .padding(.horizontal)
                         }
                     }
             }
-            //.padding(.vertical)
+           
             
             Button("Check Selengkapnya") {
                 print("check button pressed")
@@ -115,7 +113,7 @@ struct HomeView: View {
             
           
         }
-        .background(Color(.systemGray6))
+        .background(Color.white)
         .edgesIgnoringSafeArea(.bottom)
     }
 }
