@@ -49,9 +49,11 @@ struct AddItemView: View {
                     Text("Tambah")
                         .fontWeight(.medium)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 4)
+                        .padding(.vertical, 12)
                 }
-                .buttonStyle(.borderedProminent)
+                .foregroundColor(.white)
+                .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing))
+                .cornerRadius(8)
                 .padding()
             }
         }

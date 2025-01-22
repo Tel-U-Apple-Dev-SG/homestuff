@@ -12,6 +12,7 @@ struct LoginView: View {
         case secure, text
     }
     
+    @State var toggleNavigation = false
     @State var emailValue = ""
     @State var passwordValue = ""
     @State var rememberToggle = false
@@ -24,11 +25,11 @@ struct LoginView: View {
                 Image("background")
                     .resizable()
                     .ignoresSafeArea(.all)
-                    .opacity(0.7)
+                    .opacity(0)
                 VStack {
                     Spacer()
                     VStack(spacing: 24) {
-                        Image(systemName: "person.crop.circle")
+                        Image("homestuffIcon")
                             .resizable()
                             .frame(width: 100, height: 100)
                         Text("Hi, Welcome!")
@@ -50,7 +51,8 @@ struct LoginView: View {
                                 .disableAutocorrection(true)
                         }
                         .background(.white)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1))
                         HStack {
                             Image(systemName: "lock.fill")
                                 .foregroundColor(.gray)
@@ -78,7 +80,8 @@ struct LoginView: View {
                             .padding(.trailing, 12)
                         }
                         .background(.white)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1))
                         HStack {
                             Toggle(isOn: $rememberToggle) {
                                 Text("Remember me")
@@ -92,7 +95,7 @@ struct LoginView: View {
                                 Text("Forgot password?")
                                     .font(.footnote)
                                     .fontWeight(.medium)
-                                    .foregroundColor(.white)
+//                                    .foregroundColor(.white)
                             }
                         }
                     }
@@ -100,13 +103,15 @@ struct LoginView: View {
                     Button(action: {
                         print(emailValue)
                         print(passwordValue)
+                        toggleNavigation.toggle()
                     }) {
                         Text("Sign In")
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 4)
+                            .padding(.vertical, 12)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .foregroundColor(.white)
+                    .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing))
                     .clipShape(Capsule())
                     Spacer()
                     VStack(spacing: 24) {
@@ -117,7 +122,7 @@ struct LoginView: View {
                                 Text("Register")
                                     .font(.footnote)
                                     .fontWeight(.medium)
-                                    .foregroundColor(.white)
+//                                    .foregroundColor(.white)
                             }
                         }
                         Text("or sign in with")
@@ -153,6 +158,8 @@ struct LoginView: View {
                     Spacer()
                 }
                 .padding()
+                NavigationLink(destination: ContentView(), isActive: $toggleNavigation, label: { EmptyView() })
+                    .disabled(true)
             }
         }
         .navigationBarBackButtonHidden(true)

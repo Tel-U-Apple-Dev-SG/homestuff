@@ -9,31 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-            SearchView()
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
-                }
-            AddItemView()
-                .tabItem {
-                    Image(systemName: "plus")
-                }
-            Text("History View")
-                .tabItem {
-                    Label("History", systemImage: "clock")
-                }
-            ProfileView()
-                .tabItem {
-                    Label("Profile", systemImage: "person")
-                }
+        NavigationView {
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                SearchView()
+                    .tabItem {
+                        Label("Search", systemImage: "magnifyingglass")
+                    }
+                AddItemView()
+                    .tabItem {
+                        Image(systemName: "plus")
+                    }
+                Text("History View")
+                    .tabItem {
+                        Label("History", systemImage: "clock")
+                    }
+                ProfileView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person")
+                    }
+            }
+            .onAppear() {
+                UITabBar.appearance().backgroundColor = .white
+            }
         }
-        .onAppear() {
-            UITabBar.appearance().backgroundColor = .white
-        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 

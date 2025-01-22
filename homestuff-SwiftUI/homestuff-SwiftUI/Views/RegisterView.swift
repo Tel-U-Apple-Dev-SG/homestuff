@@ -25,11 +25,11 @@ struct RegisterView: View {
                 Image("background")
                     .resizable()
                     .ignoresSafeArea(.all)
-                    .opacity(0.7)
+                    .opacity(0)
                 VStack {
                     Spacer()
                     VStack(spacing: 24) {
-                        Image(systemName: "person.crop.circle")
+                        Image("homestuffIcon")
                             .resizable()
                             .frame(width: 100, height: 100)
                         Text("Hi, Welcome!")
@@ -53,7 +53,8 @@ struct RegisterView: View {
                                 .disableAutocorrection(true)
                         }
                         .background(.white)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1))
                         HStack {
                             Image(systemName: "envelope.fill")
                                 .foregroundColor(.gray)
@@ -64,7 +65,8 @@ struct RegisterView: View {
                                 .disableAutocorrection(true)
                         }
                         .background(.white)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1))
                         HStack {
                             Image(systemName: "lock.fill")
                                 .foregroundColor(.gray)
@@ -92,7 +94,8 @@ struct RegisterView: View {
                             .padding(.trailing, 12)
                         }
                         .background(.white)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1))
                         HStack {
                             Image(systemName: "lock.fill")
                                 .foregroundColor(.gray)
@@ -120,7 +123,8 @@ struct RegisterView: View {
                             .padding(.trailing, 12)
                         }
                         .background(.white)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1))
                     }
                     Spacer()
                     Button(action: {
@@ -132,9 +136,10 @@ struct RegisterView: View {
                         Text("Sign Up")
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 4)
+                            .padding(.vertical, 12)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .foregroundColor(.white)
+                    .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing))
                     .clipShape(Capsule())
                     Spacer()
                     HStack(spacing: 4) {
@@ -144,7 +149,7 @@ struct RegisterView: View {
                             Text("Login")
                                 .font(.footnote)
                                 .fontWeight(.medium)
-                                .foregroundColor(.white)
+//                                .foregroundColor(.white)
                         }
                     }
                     Spacer()
