@@ -21,7 +21,7 @@ struct ContentView: View {
                     }
                 AddItemView()
                     .tabItem {
-                        Image(systemName: "plus")
+                        Label("Add Item", systemImage: "plus")
                     }
                 Text("History View")
                     .tabItem {

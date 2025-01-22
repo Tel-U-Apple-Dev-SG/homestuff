@@ -29,7 +29,28 @@ struct AddItemView: View {
                 .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
                 )
                 .cornerRadius(28)
-//                Spacer()
+                Button(action: {
+                    
+                }) {
+                    HStack (spacing: 16) {
+                        Spacer()
+                        Text("Add an image to make managing expiry dates easier!")
+                            .fontWeight(.medium)
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(.gray)
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.gray)
+                            .opacity(0.5)
+                            .frame(width: 100, height: 100)
+                            .padding(.vertical, 24)
+                        Spacer()
+                    }
+                }
+                .background(Color(red: 0.937, green: 0.937, blue: 0.942))
+                .cornerRadius(12)
+                .padding(.all)
                 VStack(spacing: 16) {
                     HStack {
                         Text("Nama Barang")
@@ -44,7 +65,7 @@ struct AddItemView: View {
                     DatePicker(selection: $dateValue, displayedComponents: [.date], label: { Text("Tanggal Kadaluarsa Barang") })
                     
                 }
-                .padding()
+                .padding(.horizontal)
                 Spacer()
                 Button(action: {
                     print(nameValue)
