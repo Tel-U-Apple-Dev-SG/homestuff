@@ -61,23 +61,20 @@ struct SearchView: View {
            HStack {
                Image(systemName: "person.crop.circle.fill")
                    .resizable()
-                   .frame(width: 60, height: 60)
+                   .frame(width: 40, height: 40)
                    .clipShape(Circle())
                    .padding(.leading)
                
                VStack(alignment: .leading) {
-                   Text("Welcome back,")
-                       .font(.caption)
-                       .foregroundColor(.white)
-                   Text("Alya Salma Khoerunnisaa!")
+                   Text("Here is your lists!")
                        .font(.headline)
                        .bold()
-                       .foregroundColor(.white)
+                       .foregroundColor(.black)
                }
                Spacer()
            }
            .padding(.top, 60)
-           .padding(.bottom)
+          
        }
    }
    

@@ -98,13 +98,6 @@ struct HomeView: View {
                 
                 Spacer()
                 
-//                    .background(Color.white)
-//                    .edgesIgnoringSafeArea(.bottom)
-//                    .frame(height: 240)
-//                    .padding(.horizontal, -16)
-//                    .padding(.top, -16)
-//                    .ignoresSafeArea(.all, edges: .top)
-//                    .shadow(radius: 5)
             }
             .edgesIgnoringSafeArea(.top)
         }

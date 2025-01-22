@@ -56,8 +56,8 @@ struct ProfileView: View {
                     .frame(height: 1)
                     .foregroundColor(.clear)
                     .overlay(Rectangle()
-                        .stroke(style: StrokeStyle(lineWidth: 1, dash: [6]))
-                        .foregroundColor(.orange))
+                     //   .stroke(style: StrokeStyle(lineWidth: 1, dash: [6]))
+                        .foregroundColor(.gray))
                     .padding(.all)
                   
                 
