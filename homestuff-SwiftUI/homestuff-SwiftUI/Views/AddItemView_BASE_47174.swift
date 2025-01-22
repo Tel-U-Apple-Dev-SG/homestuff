@@ -24,11 +24,10 @@ struct AddItemView: View {
                         .padding(.bottom, 24)
                     Spacer()
                 }
-                .padding(.top, 48)
-               
-                .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
-                )
-                .cornerRadius(28)
+                .background(LinearGradient(
+                    gradient: Gradient(colors: [Color.yellow, Color.orange]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing))
 //                Spacer()
                 VStack(spacing: 16) {
                     HStack {
@@ -53,14 +52,11 @@ struct AddItemView: View {
                     Text("Tambah")
                         .fontWeight(.medium)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
+                        .padding(.vertical, 4)
                 }
-                .foregroundColor(.white)
-                .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(8)
+                .buttonStyle(.borderedProminent)
                 .padding()
             }
-            .edgesIgnoringSafeArea(.top)
         }
     }
 }

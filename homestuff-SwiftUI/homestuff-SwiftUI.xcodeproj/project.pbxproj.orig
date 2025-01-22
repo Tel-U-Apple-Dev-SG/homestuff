@@ -154,7 +154,11 @@
 				E7F588832D3F85AD00A40097 /* ProfileView.swift */,
 				1BF7B9842D3E338F002C0E1D /* LoginView.swift */,
 				1BF7B9862D3E33F2002C0E1D /* RegisterView.swift */,
+<<<<<<< HEAD
+=======
+				1B95172A2D3F4183001C5FC5 /* AddItemView.swift */,
 				1B2D89B62D408FCA0088F332 /* OnBoardingView.swift */,
+>>>>>>> 1a584209862fca7f7de8ee173decf867a87d6f1e
 			);
 			path = Views;
 			sourceTree = "<group>";
