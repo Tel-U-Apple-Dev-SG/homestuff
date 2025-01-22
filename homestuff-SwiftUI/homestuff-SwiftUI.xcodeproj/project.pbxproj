@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B2D89B72D408FCA0088F332 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D89B62D408FCA0088F332 /* OnBoardingView.swift */; };
 		1B95172B2D3F4183001C5FC5 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95172A2D3F4183001C5FC5 /* AddItemView.swift */; };
 		1BF7B9592D3E25A0002C0E1D /* homestuff_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7B9582D3E25A0002C0E1D /* homestuff_SwiftUIApp.swift */; };
 		1BF7B95B2D3E25A0002C0E1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7B95A2D3E25A0002C0E1D /* ContentView.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B2D89B62D408FCA0088F332 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		1B95172A2D3F4183001C5FC5 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		1BF7B9552D3E25A0002C0E1D /* homestuff-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homestuff-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF7B9582D3E25A0002C0E1D /* homestuff_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homestuff_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				1BF7B9842D3E338F002C0E1D /* LoginView.swift */,
 				1BF7B9862D3E33F2002C0E1D /* RegisterView.swift */,
 				1B95172A2D3F4183001C5FC5 /* AddItemView.swift */,
+				1B2D89B62D408FCA0088F332 /* OnBoardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				E7F588842D3F85AD00A40097 /* ProfileView.swift in Sources */,
 				1BF7B9852D3E338F002C0E1D /* LoginView.swift in Sources */,
 				1BF7B9872D3E33F3002C0E1D /* RegisterView.swift in Sources */,
+				1B2D89B72D408FCA0088F332 /* OnBoardingView.swift in Sources */,
 				1BF7B95B2D3E25A0002C0E1D /* ContentView.swift in Sources */,
 				E7F588822D3F856A00A40097 /* SearchView.swift in Sources */,
 				E7F588802D3F852000A40097 /* HomeView.swift in Sources */,
