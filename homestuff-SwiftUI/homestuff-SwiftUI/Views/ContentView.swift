@@ -23,7 +23,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("Add Item", systemImage: "plus")
                     }
-                Text("History View")
+               HistoryPage()
                     .tabItem {
                         Label("History", systemImage: "clock")
                     }
