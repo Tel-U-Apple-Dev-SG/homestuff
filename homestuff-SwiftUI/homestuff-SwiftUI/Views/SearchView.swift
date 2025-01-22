@@ -13,23 +13,30 @@ struct SearchView: View {
             
             VStack {
                 headerView()
-                    .padding(.bottom)
                 
-                HStack {
+                HStack{
                     Text("Daftar barang")
                         .font(.headline)
-                    Spacer()
-                    
-                    TextField("Cari barang"  , text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).textFieldStyle(.roundedBorder)
-                    
-                    .padding(.horizontal)
-                
+                        .padding(.leading)
+                    HStack{
+                        TextField("Cari barang"  , text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                            .padding(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 15)
+                                    .stroke(Color.black)
+                            )
+                            
+                    }
+                    .padding(.all)
+                   
                 }
+
                 ScrollView {
                     itemListView()
                 }
-                .padding(.top, 8)
+               
             }
+            .edgesIgnoringSafeArea(.top)
         }
         
         
@@ -44,12 +51,12 @@ struct SearchView: View {
     }
     func headerView() -> some View {
        ZStack {
-           RoundedRectangle(cornerRadius: 20)
+           RoundedRectangle(cornerRadius: 28)
                .fill(
                 LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
                    )
-               .frame(height: 120)
-               .shadow(radius: 5)
+               .frame(height: 140)
+               
            
            HStack {
                Image(systemName: "person.crop.circle.fill")
@@ -69,7 +76,8 @@ struct SearchView: View {
                }
                Spacer()
            }
-           .padding(.horizontal)
+           .padding(.top, 60)
+           .padding(.bottom)
        }
    }
    

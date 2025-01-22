@@ -9,24 +9,16 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(
-                     LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
-                        )
-                    .frame(height: 120)
-                    .shadow(radius: 5)
-                  
-                
-                HStack {
+        ZStack {
+            VStack{
+                HStack{
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
                         .frame(width: 60, height: 60)
                         .clipShape(Circle())
                         .padding(.leading)
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading){
                         Text("Welcome back,")
                             .font(.caption)
                             .foregroundColor(.white)
@@ -36,42 +28,42 @@ struct HomeView: View {
                             .foregroundColor(.white)
                     }
                     Spacer()
+                    
                 }
-            }
-            .padding(5)
-            
-            
-            HStack {
-                VStack {
-                    Text("Jumlah Barang")
-                        .font(.headline)
-                    Text("10")
-                        .font(.largeTitle)
-                        .bold()
-                }
-                .frame(maxWidth: .infinity)
-                
-                VStack {
-                    Text("Kadaluwarsa Terdekat")
-                        .font(.headline)
-                    HStack(alignment: .top) {
-                        Text("10 Jan 2025")
+                .padding(.top, 60)
+                .padding(.bottom)
+                .background(
+                    RoundedRectangle(cornerRadius: 28)
+                        .fill(
+                         LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
+                            ))
+                      
+                HStack {
+                    VStack{
+                        Text("Jumlah Barang")
+                            .font(.headline)
+                        Text("0")
                             .font(.system(size: 27, weight: .bold))
-                       
+                            
                     }
-                
+                    .frame(maxWidth: .infinity)
+                    VStack{
+                        Text("Kadaluarsa Terdekat")
+                            .font(.headline)
+                        Text("10 Jan 2025")
+                            .font(.system(size: 25, weight: .bold))
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-                .frame(maxWidth: .infinity)
-            }
-            .padding(.horizontal)
-            .padding(.bottom, 20)
-            
-            
-            VStack(alignment: .center) {
-                Text("Daftar Menuju Kadaluwarsa")
-                    .font(.headline)
-                    .padding(1)
+                .padding(.horizontal)
+                .padding(.top)
                 
+                
+                VStack(alignment: .center) {
+                    Text("Daftar Menuju Kadaluwarsa")
+                        .font(.headline)
+                        .padding(1)
+                    
                     VStack {
                         ForEach(0..<4) { index in
                             HStack {
@@ -88,36 +80,36 @@ struct HomeView: View {
                             }
                             .padding()
                             .background(Color(.systemGray6))
-                           
+                            
                             .cornerRadius(10)
                             .shadow(radius: 2)
                             .padding(.horizontal)
                         }
                     }
+                }
+                
+                
+                Button("Check Selengkapnya") {
+                    print("check button pressed")
+                }
+                .font(.headline)
+                .foregroundColor(.black)
+                .padding(.bottom, 10)
+                
+                Spacer()
+                
+//                    .background(Color.white)
+//                    .edgesIgnoringSafeArea(.bottom)
+//                    .frame(height: 240)
+//                    .padding(.horizontal, -16)
+//                    .padding(.top, -16)
+//                    .ignoresSafeArea(.all, edges: .top)
+//                    .shadow(radius: 5)
             }
-           
-            
-            Button("Check Selengkapnya") {
-                print("check button pressed")
-            }
-            .font(.headline)
-            .foregroundColor(.black)
-            .padding(.bottom, 10)
-            
-            Spacer()
-            
-            
-          
-
-           
-            
-          
+            .edgesIgnoringSafeArea(.top)
         }
-        .background(Color.white)
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
-
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()

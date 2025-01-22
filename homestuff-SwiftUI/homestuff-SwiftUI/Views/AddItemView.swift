@@ -24,8 +24,11 @@ struct AddItemView: View {
                         .padding(.bottom, 24)
                     Spacer()
                 }
+                .padding(.top, 48)
+               
                 .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
                 )
+                .cornerRadius(28)
 //                Spacer()
                 VStack(spacing: 16) {
                     HStack {
@@ -55,6 +58,7 @@ struct AddItemView: View {
                 .buttonStyle(.borderedProminent)
                 .padding()
             }
+            .edgesIgnoringSafeArea(.top)
         }
     }
 }

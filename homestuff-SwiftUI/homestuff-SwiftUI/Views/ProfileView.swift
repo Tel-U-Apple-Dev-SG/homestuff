@@ -9,68 +9,133 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        VStack {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
+        ZStack {
+            VStack {
+                HStack{
+                    Text("Profile")
+                        .font(.system(size: 25, weight: .bold, design: .rounded))
+                            .foregroundColor(.black)
+                        
+                    
+                }
+                .padding(.top, 80)
+                .padding(.bottom)
+                .frame(maxWidth: .infinity)
+                .background( RoundedRectangle(cornerRadius: 28)
                     .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.orange, Color.yellow]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
+                        LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
                     )
-                    .frame(height: 120)
-                    .shadow(radius: 5)
-                Text("profile")
-                    .font(.system(size: 27, weight: .medium ))
-            }
-            Spacer()
-            
-            HStack {
-                Image(systemName: "person.crop.circle.fill")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .clipShape(Circle())
-                    .padding(.leading)
+                        )
                 
-                VStack(alignment: .leading) {
-                    Text("(Username)")
-                        .font(.headline)
-                        .bold()
-                        .foregroundColor(.black)
-                    Text("AppleDevSG@gmail.com")
-                        .font(.caption)
-                        .foregroundColor(.black)
-                    Text("+62 123 4567 7890")
-                        .font(.caption)
-                        .foregroundColor(.black)
-                   
+                HStack {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .frame(width: 55, height: 55)
+                        .clipShape(Circle())
+                        .padding(.all)
+                    
+                    VStack(alignment: .leading) {
+                        Text("(Username)")
+                            .font(.headline)
+                            .bold()
+                            .foregroundColor(.black)
+                        Text("AppleDevSG@gmail.com")
+                            .font(.caption)
+                            .foregroundColor(.black)
+                        Text("+62 123 4567 7890")
+                            .font(.caption)
+                            .foregroundColor(.black)
+                    }
+                    Spacer()
                 }
                 Spacer()
-            }
-            HStack{
+                
+                
+                
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.clear)
                     .overlay(Rectangle()
                         .stroke(style: StrokeStyle(lineWidth: 1, dash: [6]))
                         .foregroundColor(.orange))
-            }
-            Spacer()
-            VStack(spacing : 16){
-                Button("Edit Profile") {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                }
+                    .padding(.all)
+                  
                 
-            
+                VStack(spacing: 16){
+                    MenuItem(icon: "pencil", text: "Edit Pofile")
+                    MenuItem(icon: "gearshape.fill", text: "Account Settings")
+                    Spacer()
+                        .padding(.all)
+                    
+                }
+                Button(action: {}){
+                    HStack{
+                        
+                       Image(systemName: "rectangle.portrait.and.arrow.forward")
+                            .foregroundColor(.white)
+                            .scaledToFit()
+                            .bold()
+                            
+                        Text("Log Out")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                         
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background( RoundedRectangle(cornerRadius: 10))
+                    .foregroundColor(.red)
+                    .padding(.all)
+                }
+                .padding(.bottom)
+                
+                
+                
+                
+             
+                
             }
             
+            .edgesIgnoringSafeArea(.top)
         }
+        
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+    }
+}
+struct MenuItem: View {
+    var icon: String
+    var text: String
+    
+    var body: some View {
+        Button(action: {}) {
+            HStack {
+                Image(systemName: icon)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.orange)
+                
+                Text(text)
+                    .font(.headline)
+                    .foregroundColor(.black)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 12, height: 12)
+                    .foregroundColor(.gray)
+            }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 2)
+        }
     }
 }
