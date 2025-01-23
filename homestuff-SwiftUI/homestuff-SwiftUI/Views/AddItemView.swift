@@ -34,7 +34,7 @@ struct AddItemView: View {
                 }) {
                     HStack (spacing: 16) {
                         Spacer()
-                        Text("Add an image to make managing expiry dates easier!")
+                        Text("Tambah gambar barang untuk kemudahan dalam melihat barang!")
                             .fontWeight(.medium)
                             .multilineTextAlignment(.leading)
                             .foregroundColor(.gray)

@@ -32,14 +32,14 @@ struct RegisterView: View {
                         Image("homestuffIcon")
                             .resizable()
                             .frame(width: 100, height: 100)
-                        Text("Hi, Welcome!")
+                        Text("Selamat Datang!")
                             .font(.title)
                             .fontWeight(.medium)
                     }
                     Spacer()
                     VStack(spacing: 16) {
                         HStack {
-                            Text("Sign Up")
+                            Text("Daftar")
                                 .fontWeight(.medium)
                             Spacer()
                         }
@@ -47,7 +47,7 @@ struct RegisterView: View {
                             Image(systemName: "person.fill")
                                 .foregroundColor(.gray)
                                 .padding(.leading, 12)
-                            TextField("Name", text: $nameValue)
+                            TextField("Nama", text: $nameValue)
                                 .padding(.vertical, 12)
                                 .autocapitalization(.none)
                                 .disableAutocorrection(true)
@@ -72,13 +72,13 @@ struct RegisterView: View {
                                 .foregroundColor(.gray)
                                 .padding(.leading, 12)
                             if showPassword {
-                                TextField("Password", text: $passwordValue)
+                                TextField("Kata sandi", text: $passwordValue)
                                     .padding(.vertical, 12)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
                                     .focused($inFocus, equals: .text)
                             } else {
-                                SecureField("Password", text: $passwordValue)
+                                SecureField("Kata sandi", text: $passwordValue)
                                     .padding(.vertical, 12)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
@@ -101,13 +101,13 @@ struct RegisterView: View {
                                 .foregroundColor(.gray)
                                 .padding(.leading, 12)
                             if showPassword {
-                                TextField("Confirm Password", text: $confirmPasswordValue)
+                                TextField("Konfirmasi kata sandi", text: $confirmPasswordValue)
                                     .padding(.vertical, 12)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
                                     .focused($inFocus, equals: .text)
                             } else {
-                                SecureField("Confirm Password", text: $confirmPasswordValue)
+                                SecureField("Konfirmasi kata sandi", text: $confirmPasswordValue)
                                     .padding(.vertical, 12)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
@@ -133,7 +133,7 @@ struct RegisterView: View {
                         print(passwordValue)
                         print(confirmPasswordValue)
                     }) {
-                        Text("Sign Up")
+                        Text("Daftar")
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 12)
@@ -143,10 +143,10 @@ struct RegisterView: View {
                     .clipShape(Capsule())
                     Spacer()
                     HStack(spacing: 4) {
-                        Text("Don't have an accont?")
+                        Text("Sudah memiliki akun?")
                             .font(.footnote)
                         NavigationLink(destination: LoginView()) {
-                            Text("Login")
+                            Text("Masuk")
                                 .font(.footnote)
                                 .fontWeight(.medium)
 //                                .foregroundColor(.white)

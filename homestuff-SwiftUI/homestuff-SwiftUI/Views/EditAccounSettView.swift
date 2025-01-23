@@ -15,16 +15,19 @@ struct EditAccounSettView: View {
                 VStack {
                     ZStack {
                         HStack {
-                            Text("Edit Profile")
-                                .font(.system(size: 25, weight: .bold, design: .rounded))
-                                .foregroundColor(.black)
+                            Spacer()
+                            Text("Pengaturan Akun")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .padding(.top, 36)
+                                .padding(.bottom, 24)
+                            Spacer()
                         }
-                        .padding(.top, 80)
-                        .padding(.bottom)
-                        .frame(maxWidth: .infinity)
-                        .background( RoundedRectangle(cornerRadius: 28)
-                            .fill(
-                            LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)))
+                        .padding(.top, 48)
+                       
+                        .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
+                        )
+                        .cornerRadius(28)
                         HStack {
                             Button(action: {
                                 dismiss()
@@ -40,7 +43,7 @@ struct EditAccounSettView: View {
                         .padding(.bottom)
                     }
                     HStack{
-                        Text("Basic Information")
+                        Text("Informasi Dasar")
                             .font(.system(size: 20))
                             .bold()
                         Spacer()
@@ -56,7 +59,7 @@ struct EditAccounSettView: View {
                         Divider()
                             .frame(minHeight: 1)
                             .background(.black)
-                        InfoSettingsView(Info: "Phone Number", Value: "+62 123 4567 8890")
+                        InfoSettingsView(Info: "Nomor Telepon", Value: "+62 123 4567 8890")
                         Divider()
                             .frame(minHeight: 1)
                             .background(.black)
@@ -64,7 +67,7 @@ struct EditAccounSettView: View {
                     }
                     .padding(.horizontal)
                     HStack{
-                        Text("Account Information")
+                        Text("Informasi Akun")
                             .font(.system(size: 20))
                             .bold()
                         Spacer()
@@ -72,11 +75,11 @@ struct EditAccounSettView: View {
                     .padding(.horizontal)
                     .padding(.top)
                     VStack{
-                        InfoSettingsView(Info: "Nama", Value: "Username")
+                        InfoSettingsView(Info: "Nama Pengguna", Value: "Username")
                         Divider()
                             .frame(minHeight: 1)
                             .background(.black)
-                        PasswordView(Info: "Password", Value: "AppleDevSG")
+                        PasswordView(Info: "Kata Sandi", Value: "AppleDevSG")
                         Divider()
                             .frame(minHeight: 1)
                             .background(.black)

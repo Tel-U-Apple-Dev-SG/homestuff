@@ -49,7 +49,7 @@ struct SearchView: View {
                                         
                                     }
                                     Divider().padding(.vertical, 4)
-                                    VStack(alignment: .leading, spacing: 4) {
+                                    VStack(alignment: .leading, spacing: 8) {
                                         Text("Detail barang:")
                                             .font(.subheadline)
                                             .foregroundColor(.black)
@@ -112,7 +112,7 @@ func headerView() -> some View {
                 .padding(.leading)
             
             VStack(alignment: .leading) {
-                Text("Here is your lists!")
+                Text("Daftar barangmu!")
                     .font(.headline)
                     .bold()
                     .foregroundColor(.black)

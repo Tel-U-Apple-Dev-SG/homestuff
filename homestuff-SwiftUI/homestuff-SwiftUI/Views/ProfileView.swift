@@ -12,31 +12,27 @@ struct ProfileView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    HStack{
-                        Text("Profile")
-                            .font(.system(size: 25, weight: .bold, design: .rounded))
-                            .foregroundColor(.black)
-                        
-                        
-                    }
-                    .padding(.top, 80)
-                    .padding(.bottom)
-                    .frame(maxWidth: .infinity)
-                    .background( RoundedRectangle(cornerRadius: 28)
-                        .fill(
-                            LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
-                        )
-                    )
-                    
                     HStack {
+                        Spacer()
+                        Text("Profil")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(.top, 36)
+                            .padding(.bottom, 24)
+                        Spacer()
+                    }
+                    .padding(.top, 48)
+                   
+                    .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
+                    )
+                    .cornerRadius(28)
+                    
+                    HStack(spacing: 16) {
                         Image(systemName: "person.crop.circle.fill")
                             .resizable()
-                            .frame(width: 55, height: 55)
+                            .frame(width: 72, height: 72)
                             .clipShape(Circle())
-                            .padding(.all)
-                        
-                        
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 8) {
                             Text("(Username)")
                                 .font(.headline)
                                 .bold()
@@ -50,31 +46,25 @@ struct ProfileView: View {
                         }
                         Spacer()
                     }
-                    Spacer()
-                    
-                    
-                    
-                    Rectangle()
-                        .frame(height: 1.5)
-                        .foregroundColor(.clear)
-                        .overlay(Rectangle()
-                            .foregroundColor(.gray))
+                    .padding(.horizontal)
+                    .padding(.top)
+                    Divider()
+                        .frame(minHeight: 1)
+                        .background(.black)
                         .padding(.all)
-                    
-                    
                     VStack(spacing: 16){
                         NavigationLink(destination: EditProfileView()) {
-                            MenuItem(icon: "pencil", text: "Edit Pofile")
+                            MenuItem(icon: "pencil", text: "Perbarui Profil")
                         }
                         NavigationLink(destination: EditAccounSettView()) {
-                            MenuItem(icon: "gearshape.fill", text: "Account Settings")
+                            MenuItem(icon: "gearshape.fill", text: "Pengaturan Akun")
                         }
                         Spacer()
                             .padding()
                         
                     }
-                    .padding()
-                    Button(action: {}){
+                    .padding(.horizontal)
+                    NavigationLink(destination: LoginView()) {
                         HStack{
                             
                             Image(systemName: "rectangle.portrait.and.arrow.forward")
@@ -82,7 +72,7 @@ struct ProfileView: View {
                                 .scaledToFit()
                                 .bold()
                             
-                            Text("Log Out")
+                            Text("Keluar")
                                 .foregroundColor(.white)
                                 .font(.headline)
                             
@@ -94,12 +84,6 @@ struct ProfileView: View {
                         .padding(.all)
                     }
                     .padding(.bottom)
-                    
-                    
-                    
-                    
-                    
-                    
                 }
                 
                 .edgesIgnoringSafeArea(.top)

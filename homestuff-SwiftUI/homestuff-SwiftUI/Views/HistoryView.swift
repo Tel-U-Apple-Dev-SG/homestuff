@@ -7,7 +7,7 @@ struct HistoryPage: View {
                 VStack {
                     HStack {
                         Spacer()
-                        Text("History")
+                        Text("Histori")
                             .font(.title2)
                             .fontWeight(.semibold)
                             .padding(.top, 36)
@@ -50,36 +50,37 @@ struct ItemRow: View {
             HStack(alignment: .center, spacing: 16) {
                 Image(systemName: "photo")
                     .resizable()
-                    .frame(width: 50, height: 50)
-                    .background(RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray, lineWidth: 1))
-                
-                    .cornerRadius(8)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 72)
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
                         Text("Nama Barang")
                             .font(.headline)
                         Spacer()
-                        Text("On Going")
-                            .font(.caption)
-                            .foregroundColor(.orange)
+                        Text("Selesai")
+                            .font(.subheadline)
+                            .foregroundColor(.green)
                         
                     }
-                    VStack{
-                        Text("Detail barang:\nMasukkan dan kadaluarsa barang")
+                    Divider().padding(.vertical, 4)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Detail barang:")
+                            .font(.subheadline)
+                            .foregroundColor(.black)
+                        Text("Masukkan dan kadaluarsa barang")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        
-                        
-                        Text("22 Januari 2025 - 22 Januari 2077")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                        
+                        HStack {
+                            Text("January 12, 2025")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                            Divider()
+                            Text("February 14, 2025")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                        }
                     }
-                  
-                    
                 }
-               
                 .padding(.all)
                 .frame(maxWidth: .infinity)
                 .background(RoundedRectangle(cornerRadius: 8)
@@ -87,10 +88,7 @@ struct ItemRow: View {
                 .overlay(RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.gray, lineWidth: 1))
             }
-            
             .padding(.vertical, 8)
-           
-            
         }
     }
 }

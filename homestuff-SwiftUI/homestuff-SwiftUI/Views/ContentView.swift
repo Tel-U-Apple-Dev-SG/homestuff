@@ -13,23 +13,23 @@ struct ContentView: View {
             TabView {
                 HomeView()
                     .tabItem {
-                        Label("Home", systemImage: "house")
+                        Label("Beranda", systemImage: "house")
                     }
                 SearchView()
                     .tabItem {
-                        Label("Search", systemImage: "magnifyingglass")
+                        Label("Pencarian", systemImage: "magnifyingglass")
                     }
                 AddItemView()
                     .tabItem {
-                        Label("Add Item", systemImage: "plus")
+                        Label("Tambah", systemImage: "plus")
                     }
                HistoryPage()
                     .tabItem {
-                        Label("History", systemImage: "clock")
+                        Label("Histori", systemImage: "clock")
                     }
                 ProfileView()
                     .tabItem {
-                        Label("Profile", systemImage: "person")
+                        Label("Profil", systemImage: "person")
                     }
             }
             .onAppear() {

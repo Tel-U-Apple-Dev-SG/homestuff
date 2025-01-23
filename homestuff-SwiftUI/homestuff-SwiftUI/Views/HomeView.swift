@@ -17,15 +17,14 @@ struct HomeView: View {
                         .frame(width: 60, height: 60)
                         .clipShape(Circle())
                         .padding(.leading)
-                    
-                    VStack(alignment: .leading){
-                        Text("Welcome back,")
-                            .font(.caption)
-                            .foregroundColor(.white)
-                        Text("(Username)!")
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Selamat datang,")
                             .font(.headline)
+                            .foregroundColor(.black)
+                        Text("(Username)!")
+                            .font(.title3)
                             .bold()
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     }
                     Spacer()
                     
@@ -67,15 +66,14 @@ struct HomeView: View {
                     VStack {
                         ForEach(0..<4) { index in
                             HStack {
-                                Image("snack_image")
+                                Image(systemName: "photo")
                                     .resizable()
-                                    .frame(width: 60, height: 60)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                
-                                Text("\(index * 100 + 21) Days left")
-                                    .font(.headline)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 80, height: 80)
+                                Spacer()
+                                Text("\(index * 100 + 21) Hari tersisa")
+                                    .font(.title2)
                                     .padding(.leading)
-                                
                                 Spacer()
                             }
                             .padding()

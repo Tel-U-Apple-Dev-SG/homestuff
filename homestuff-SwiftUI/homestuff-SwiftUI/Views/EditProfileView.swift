@@ -15,16 +15,19 @@ struct EditProfileView: View {
                 VStack {
                     ZStack {
                         HStack {
-                            Text("Edit Profile")
-                                .font(.system(size: 25, weight: .bold, design: .rounded))
-                                .foregroundColor(.black)
+                            Spacer()
+                            Text("Perbarui Profil")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .padding(.top, 36)
+                                .padding(.bottom, 24)
+                            Spacer()
                         }
-                        .padding(.top, 80)
-                        .padding(.bottom)
-                        .frame(maxWidth: .infinity)
-                        .background( RoundedRectangle(cornerRadius: 28)
-                            .fill(
-                            LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)))
+                        .padding(.top, 48)
+                       
+                        .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing)
+                        )
+                        .cornerRadius(28)
                         HStack {
                             Button(action: {
                                 dismiss()
@@ -41,10 +44,11 @@ struct EditProfileView: View {
                     }
                     
                     HStack{
-                        Text("Profile Image")
+                        Text("Gambar Profil")
                             .font(.system(size: 15))
                             .bold()
                     }
+                    .padding(.top, 8)
                     HStack{
                         ZStack{
                             Image(systemName: "person.crop.circle.fill")
@@ -62,16 +66,16 @@ struct EditProfileView: View {
                         }
                     }
                     VStack{
-                        ContainerEdit(UserName: "Username", PlaceHolder: "Masukkan username baru")
-                        ContainerEdit(UserName: "email", PlaceHolder: "MAsukkan email baru")
-                        ContainerEdit(UserName: "Nomor HP", PlaceHolder: "MAsukkan nomor baru")
+                        ContainerEdit(UserName: "Nama pengguna", PlaceHolder: "Masukkan username baru")
+                        ContainerEdit(UserName: "Email", PlaceHolder: "MAsukkan email baru")
+                        ContainerEdit(UserName: "Nomor telepon", PlaceHolder: "MAsukkan nomor baru")
                         ContainerEdit(UserName: "Password baru?", PlaceHolder: "Masukkan Password baru")
                         
                     }
                     Spacer()
                     Button(action: {}){
                         HStack{
-                            Text("Update Profile")
+                            Text("Perbarui")
                                 .foregroundColor(.white)
                                 .font(.headline)
                             

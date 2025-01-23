@@ -32,13 +32,13 @@ struct LoginView: View {
                         Image("homestuffIcon")
                             .resizable()
                             .frame(width: 100, height: 100)
-                        Text("Hi, Welcome!")
+                        Text("Selamat Datang!")
                             .font(.title)
                             .fontWeight(.medium)
                     }
                     Spacer()
                     VStack(spacing: 16) {
-                        Text("Sign In")
+                        Text("Masuk")
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HStack {
@@ -58,13 +58,13 @@ struct LoginView: View {
                                 .foregroundColor(.gray)
                                 .padding(.leading, 12)
                             if showPassword {
-                                TextField("Password", text: $passwordValue)
+                                TextField("Kata sandi", text: $passwordValue)
                                     .padding(.vertical, 12)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
                                     .focused($inFocus, equals: .text)
                             } else {
-                                SecureField("Password", text: $passwordValue)
+                                SecureField("Kata sandi", text: $passwordValue)
                                     .padding(.vertical, 12)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
@@ -84,7 +84,7 @@ struct LoginView: View {
                             .stroke(Color.gray, lineWidth: 1))
                         HStack {
                             Toggle(isOn: $rememberToggle) {
-                                Text("Remember me")
+                                Text("Ingat saya")
                                     .font(.footnote)
                             }
                             .toggleStyle(rememberMeToggleStyle())
@@ -92,7 +92,7 @@ struct LoginView: View {
                             Button(action: {
                                 
                             }) {
-                                Text("Forgot password?")
+                                Text("Lupa kata sandi?")
                                     .font(.footnote)
                                     .fontWeight(.medium)
 //                                    .foregroundColor(.white)
@@ -105,7 +105,7 @@ struct LoginView: View {
                         print(passwordValue)
                         toggleNavigation.toggle()
                     }) {
-                        Text("Sign In")
+                        Text("Masuk")
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 12)
@@ -116,16 +116,18 @@ struct LoginView: View {
                     Spacer()
                     VStack(spacing: 24) {
                         HStack(spacing: 4) {
-                            Text("Don't have an accont?")
+                            Text("Tidak memiliki akun?")
                                 .font(.footnote)
                             NavigationLink(destination: RegisterView()) {
-                                Text("Register")
+                                Text("Daftar")
                                     .font(.footnote)
                                     .fontWeight(.medium)
 //                                    .foregroundColor(.white)
                             }
                         }
-                        Text("or sign in with")
+                        Divider()
+                            .padding(.horizontal)
+                        Text("Atau masuk dengan")
                             .font(.footnote)
                         HStack {
                             Spacer()
