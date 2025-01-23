@@ -18,6 +18,9 @@ class StuffController: ObservableObject {
             Stuff(id: 1, name: "Taro", createDate: currentDate, expireDate: nextMonthDate!),
             Stuff(id: 2, name: "Tictac", createDate: currentDate, expireDate: nextMonthDate!),
             Stuff(id: 3, name: "Tanggo", createDate: currentDate, expireDate: nextMonthDate!),
+            Stuff(id: 4, name: "Monde", createDate: currentDate, expireDate: nextMonthDate!),
+            Stuff(id: 5, name: "Chocolatos", createDate: currentDate, expireDate: nextMonthDate!),
+            Stuff(id: 6, name: "Indomie", createDate: currentDate, expireDate: nextMonthDate!),
         ]
     }
 }
