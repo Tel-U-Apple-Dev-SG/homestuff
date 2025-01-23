@@ -60,7 +60,7 @@ struct AddItemView: View {
                         .padding(.all)
                         .overlay(RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.gray, lineWidth: 1))
-                        .autocapitalization(.none)
+                           .autocapitalization(.none)
                         .disableAutocorrection(true)
                     DatePicker(selection: $dateValue, displayedComponents: [.date], label: { Text("Tanggal Kadaluarsa Barang") })
                     
