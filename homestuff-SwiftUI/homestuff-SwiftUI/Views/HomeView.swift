@@ -55,13 +55,14 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity)
                 }
                 .padding(.horizontal)
-                .padding(.top)
+                .padding(.vertical)
+               
                 
                 
                 VStack(alignment: .center) {
                     Text("Daftar Menuju Kadaluwarsa")
                         .font(.headline)
-                        .padding(1)
+                        .padding(.bottom, 6)
                     
                     VStack {
                         ForEach(0..<4) { index in
@@ -85,15 +86,6 @@ struct HomeView: View {
                         }
                     }
                 }
-                
-                
-                Button("Check Selengkapnya") {
-                    print("check button pressed")
-                }
-                .font(.headline)
-                .foregroundColor(.black)
-                .padding(.bottom, 10)
-                
                 Spacer()
                 
             }

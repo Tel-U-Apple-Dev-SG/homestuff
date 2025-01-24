@@ -38,7 +38,11 @@ class StuffController: ObservableObject {
     
     func createStuff(name: String, expire: Date) {
         let lastID = stuff.last?.id
-        let addedItem = Stuff(id: lastID! + 1, name: name, createDate: currentDate, expireDate: expire)
+        var currentID = 1
+        if lastID != nil {
+            currentID = lastID! + 1
+        }
+        let addedItem = Stuff(id: currentID, name: name, createDate: currentDate, expireDate: expire)
         stuff.append(addedItem)
         
         saveData()
