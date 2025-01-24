@@ -73,8 +73,7 @@ struct EditProfileView: View {
                         
                     }
                     Spacer()
-                    Button(action: {}){
-                        HStack{
+                    NavigationLink(destination: EditProfileSuccsessView()) {
                             Text("Perbarui")
                                 .foregroundColor(.white)
                                 .font(.headline)
@@ -92,11 +91,12 @@ struct EditProfileView: View {
                 }
                 .edgesIgnoringSafeArea(.top)
             }
-        }
         .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
+      .navigationBarHidden(true)
+        }
+     
     }
-}
+
         
         
         struct EditProfileView_Previews: PreviewProvider {
