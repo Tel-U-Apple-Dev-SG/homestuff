@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddItemView: View {
-    
+    @ObservedObject var stuffController = StuffController()
     @State var nameValue = ""
     @State private var dateValue = Date()
     
@@ -70,6 +70,7 @@ struct AddItemView: View {
                 Button(action: {
                     print(nameValue)
                     print(dateValue)
+                    stuffController.createStuff(name: nameValue, expire: dateValue)
                 }) {
                     Text("Tambah")
                         .fontWeight(.medium)
@@ -82,6 +83,9 @@ struct AddItemView: View {
                 .padding()
             }
             .edgesIgnoringSafeArea(.top)
+        }
+        .onAppear {
+            stuffController.fetchData()
         }
     }
 }
