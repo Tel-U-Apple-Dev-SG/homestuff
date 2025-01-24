@@ -101,20 +101,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B9DFA9D2D41DC7500A90E9B /* Controller */ = {
+		1B9DFA9D2D41DC7500A90E9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1B9DFA9B2D41DC6400A90E9B /* StuffController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		1B9DFAA02D41DD3700A90E9B /* Model */ = {
+		1B9DFAA02D41DD3700A90E9B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				1B9DFA9E2D41DD3200A90E9B /* StuffModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1BF7B94C2D3E25A0002C0E1D = {
@@ -144,8 +144,8 @@
 				1BF7B9832D3E336A002C0E1D /* Views */,
 				1BF7B95C2D3E25A2002C0E1D /* Assets.xcassets */,
 				1BF7B95E2D3E25A2002C0E1D /* Preview Content */,
-				1B9DFA9D2D41DC7500A90E9B /* Controller */,
-				1B9DFAA02D41DD3700A90E9B /* Model */,
+				1B9DFA9D2D41DC7500A90E9B /* Controllers */,
+				1B9DFAA02D41DD3700A90E9B /* Models */,
 			);
 			path = "homestuff-SwiftUI";
 			sourceTree = "<group>";
