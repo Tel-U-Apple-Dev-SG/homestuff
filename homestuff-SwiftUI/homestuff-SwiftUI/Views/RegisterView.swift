@@ -12,6 +12,7 @@ struct RegisterView: View {
         case secure, text
     }
     
+    @StateObject private var authService = AuthService()
     @State var nameValue = ""
     @State var emailValue = ""
     @State var passwordValue = ""
@@ -128,19 +129,34 @@ struct RegisterView: View {
                     }
                     Spacer()
                     Button(action: {
-                        print(nameValue)
-                        print(emailValue)
-                        print(passwordValue)
-                        print(confirmPasswordValue)
+                        if nameValue.isEmpty || emailValue.isEmpty || passwordValue.isEmpty || confirmPasswordValue.isEmpty {
+                            authService.errorMessage = "Semua field harus diisi"
+                            return
+                        }
+                        if passwordValue != confirmPasswordValue {
+                            authService.errorMessage = "Password dan konfirmasi password tidak sama"
+                            return
+                        }
+                        Task {
+                            await authService.register(name: nameValue, email: emailValue, password: passwordValue)
+                        }
                     }) {
-                        Text("Daftar")
-                            .fontWeight(.medium)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
+                        HStack {
+                            if authService.isLoading {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                    .scaleEffect(0.8)
+                            }
+                            Text("Daftar")
+                                .fontWeight(.medium)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
                     }
                     .foregroundColor(.white)
                     .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing))
                     .clipShape(Capsule())
+                    .disabled(authService.isLoading)
                     Spacer()
                     HStack(spacing: 4) {
                         Text("Sudah memiliki akun?")
@@ -155,10 +171,19 @@ struct RegisterView: View {
                     Spacer()
                 }
                 .padding()
+                NavigationLink(destination: ContentView(), isActive: $authService.isAuthenticated, label: { EmptyView() })
+                    .disabled(true)
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+        .alert("Error", isPresented: .constant(authService.errorMessage != nil)) {
+            Button("OK") {
+                authService.errorMessage = nil
+            }
+        } message: {
+            Text(authService.errorMessage ?? "")
+        }
     }
 }
 

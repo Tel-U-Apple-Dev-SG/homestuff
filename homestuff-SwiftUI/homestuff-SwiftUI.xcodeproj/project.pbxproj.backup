@@ -20,8 +20,6 @@
 		1BF7B9762D3E25A2002C0E1D /* homestuff_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7B9752D3E25A2002C0E1D /* homestuff_SwiftUIUITestsLaunchTests.swift */; };
 		1BF7B9852D3E338F002C0E1D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7B9842D3E338F002C0E1D /* LoginView.swift */; };
 		1BF7B9872D3E33F3002C0E1D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7B9862D3E33F2002C0E1D /* RegisterView.swift */; };
-		AUTHMODEL_BUILD_ID /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AUTHMODEL_FILE_ID /* AuthModel.swift */; };
-		AUTHSERVICE_BUILD_ID /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AUTHSERVICE_FILE_ID /* AuthService.swift */; };
 		E77B58C62D40CA1C00A33BCE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B58C52D40CA1C00A33BCE /* HistoryView.swift */; };
 		E77B58C82D41D66A00A33BCE /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B58C72D41D66A00A33BCE /* EditProfileView.swift */; };
 		E77B58CA2D41E44100A33BCE /* EditAccounSettView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B58C92D41E44100A33BCE /* EditAccounSettView.swift */; };
@@ -67,8 +65,6 @@
 		1BF7B9752D3E25A2002C0E1D /* homestuff_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homestuff_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1BF7B9842D3E338F002C0E1D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1BF7B9862D3E33F2002C0E1D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		AUTHMODEL_FILE_ID /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
-		AUTHSERVICE_FILE_ID /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E77B58C52D40CA1C00A33BCE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		E77B58C72D41D66A00A33BCE /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		E77B58C92D41E44100A33BCE /* EditAccounSettView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccounSettView.swift; sourceTree = "<group>"; };
@@ -117,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				1B9DFA9E2D41DD3200A90E9B /* StuffModel.swift */,
-				AUTHMODEL_FILE_ID /* AuthModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,7 +146,6 @@
 				1BF7B95E2D3E25A2002C0E1D /* Preview Content */,
 				1B9DFA9D2D41DC7500A90E9B /* Controllers */,
 				1B9DFAA02D41DD3700A90E9B /* Models */,
-				SERVICES_GROUP_ID /* Services */,
 			);
 			path = "homestuff-SwiftUI";
 			sourceTree = "<group>";
@@ -200,14 +194,6 @@
 				1B2D89B62D408FCA0088F332 /* OnBoardingView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		SERVICES_GROUP_ID /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				AUTHSERVICE_FILE_ID /* AuthService.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +260,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					1BF7B9542D3E25A0002C0E1D = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -340,8 +326,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AUTHMODEL_BUILD_ID /* AuthModel.swift in Sources */,
-				AUTHSERVICE_BUILD_ID /* AuthService.swift in Sources */,
 				1B9DFA9F2D41DD3200A90E9B /* StuffModel.swift in Sources */,
 				E7F588842D3F85AD00A40097 /* ProfileView.swift in Sources */,
 				E7C0301E2D43753800E50958 /* RegistSuccessView.swift in Sources */,
@@ -431,7 +415,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -492,7 +475,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -519,7 +501,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"homestuff-SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 4Q9CXW85SW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -548,7 +529,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"homestuff-SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 4Q9CXW85SW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -572,6 +552,7 @@
 		1BF7B97D2D3E25A2002C0E1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -590,6 +571,7 @@
 		1BF7B97E2D3E25A2002C0E1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -608,6 +590,7 @@
 		1BF7B9802D3E25A2002C0E1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -624,6 +607,7 @@
 		1BF7B9812D3E25A2002C0E1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

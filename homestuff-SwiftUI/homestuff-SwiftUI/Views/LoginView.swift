@@ -12,6 +12,7 @@ struct LoginView: View {
         case secure, text
     }
     
+    @StateObject private var authService = AuthService()
     @State var toggleNavigation = false
     @State var emailValue = ""
     @State var passwordValue = ""
@@ -101,18 +102,30 @@ struct LoginView: View {
                     }
                     Spacer()
                     Button(action: {
-                        print(emailValue)
-                        print(passwordValue)
-                        toggleNavigation.toggle()
+                        if emailValue.isEmpty || passwordValue.isEmpty {
+                            authService.errorMessage = "Email dan password harus diisi"
+                            return
+                        }
+                        Task {
+                            await authService.login(email: emailValue, password: passwordValue)
+                        }
                     }) {
-                        Text("Masuk")
-                            .fontWeight(.medium)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
+                        HStack {
+                            if authService.isLoading {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                    .scaleEffect(0.8)
+                            }
+                            Text("Masuk")
+                                .fontWeight(.medium)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
                     }
                     .foregroundColor(.white)
                     .background(LinearGradient(colors: [Color(red: 255/255, green: 178/255, blue: 0/255, opacity: 0.56), Color(red: 255/255, green: 57/255, blue: 19/255, opacity:0.47)], startPoint: .leading, endPoint: .trailing))
                     .clipShape(Capsule())
+                    .disabled(authService.isLoading)
                     Spacer()
                     VStack(spacing: 24) {
                         HStack(spacing: 4) {
@@ -160,12 +173,19 @@ struct LoginView: View {
                     Spacer()
                 }
                 .padding()
-                NavigationLink(destination: ContentView(), isActive: $toggleNavigation, label: { EmptyView() })
+                NavigationLink(destination: ContentView(), isActive: $authService.isAuthenticated, label: { EmptyView() })
                     .disabled(true)
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+        .alert("Error", isPresented: .constant(authService.errorMessage != nil)) {
+            Button("OK") {
+                authService.errorMessage = nil
+            }
+        } message: {
+            Text(authService.errorMessage ?? "")
+        }
     }
 }
 
