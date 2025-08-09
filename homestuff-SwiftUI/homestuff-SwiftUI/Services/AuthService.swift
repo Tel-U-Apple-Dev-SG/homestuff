@@ -8,7 +8,9 @@
 import Foundation
 
 class AuthService: ObservableObject {
-    private let baseURL = "http://localhost:8090"
+    private var baseURL: String {
+        return EnvironmentManager.shared.baseURL
+    }
     
     @Published var isLoading = false
     @Published var errorMessage: String?
@@ -25,7 +27,7 @@ class AuthService: ObservableObject {
         
         let loginRequest = LoginRequest(email: email, password: password)
         
-        guard let url = URL(string: "\(baseURL)/api/v1/auth/login") else {
+        guard let url = URL(string: "\(baseURL)\(AppConfig.Endpoints.login)") else {
             await MainActor.run {
                 errorMessage = "Invalid URL"
                 isLoading = false
@@ -95,7 +97,7 @@ class AuthService: ObservableObject {
         
         let registerRequest = RegisterRequest(name: name, email: email, password: password)
         
-        guard let url = URL(string: "\(baseURL)/api/v1/auth/register") else {
+        guard let url = URL(string: "\(baseURL)\(AppConfig.Endpoints.register)") else {
             await MainActor.run {
                 errorMessage = "Invalid URL"
                 isLoading = false
@@ -160,7 +162,7 @@ class AuthService: ObservableObject {
     func fetchUserData() async {
         guard let token = authToken else { return }
         
-        guard let url = URL(string: "\(baseURL)/api/v1/auth/me") else {
+        guard let url = URL(string: "\(baseURL)\(AppConfig.Endpoints.userProfile)") else {
             await MainActor.run {
                 errorMessage = "Invalid URL"
             }
