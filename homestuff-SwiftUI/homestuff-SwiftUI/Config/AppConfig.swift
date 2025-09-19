@@ -21,7 +21,12 @@ struct AppConfig {
         static let login = "/api/v1/auth/login"
         static let register = "/api/v1/auth/register"
         static let userProfile = "/api/v1/auth/me"
-        static let items = "/api/v1/auth/items"
+        
+        // Item endpoints
+        static let items = "/api/v1/items"
+        static let itemsExpiring = "/api/v1/items/expiring"
+        static let itemDetail = "/api/v1/items/{item_id}"
+        static let itemPhoto = "/api/v1/items/{item_id}/photo"
     }
     
     // MARK: - App Settings

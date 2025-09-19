@@ -39,7 +39,7 @@ enum AppEnvironment: String, CaseIterable {
 // Ubah nilai ini untuk switch environment
 // Options: .development, .staging, .production
 struct EnvironmentConfig {
-    static let currentEnvironment: AppEnvironment = .development
+    static let currentEnvironment: AppEnvironment = .production
 }
 
 class EnvironmentManager: ObservableObject {
