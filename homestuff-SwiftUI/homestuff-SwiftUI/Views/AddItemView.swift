@@ -45,6 +45,7 @@ struct AddItemView: View {
                         // Clear previous recognition results
                         imageRecognitionService.clearResults()
                     }
+                    await imageRecognitionService.recognizeImage(image)
                 }
             }
         }

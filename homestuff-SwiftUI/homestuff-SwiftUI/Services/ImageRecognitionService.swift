@@ -31,14 +31,13 @@ class ImageRecognitionService: ObservableObject {
     
     // MARK: - Setup Vision Model
     private func setupVisionModel() {
-        // Try to load MobileNetV3-Small Core ML model
-        // For now, we'll use Vision's built-in image classification
-        // You can replace this with a custom Core ML model later
-        
         do {
-            // Using Vision's built-in image classification
-            // This will work out of the box without additional model files
-            visionModel = nil // We'll use Vision's built-in classifiers
+            if #available(iOS 17.0, *) {
+                let model = try Model105iteration(configuration: MLModelConfiguration()).model
+                visionModel = try VNCoreMLModel(for: model)
+            } else {
+                visionModel = nil
+            }
         } catch {
             print("Failed to load Core ML model: \(error)")
             errorMessage = "Failed to initialize image recognition model"
@@ -73,42 +72,82 @@ class ImageRecognitionService: ObservableObject {
         return
         #endif
         
-        let request = VNClassifyImageRequest { [weak self] request, error in
-            guard let self = self else { return }
-            
-            if let error = error {
-                Task { @MainActor in
-                    // Handle specific Vision Framework errors
-                    if error.localizedDescription.contains("espresso") {
-                        self.errorMessage = "Vision Framework tidak tersedia di simulator. Gunakan device fisik untuk hasil terbaik."
-                    } else {
-                        self.errorMessage = "Recognition failed: \(error.localizedDescription)"
+        let request: VNImageBasedRequest
+        if let visionModel = visionModel {
+            request = VNCoreMLRequest(model: visionModel) { [weak self] request, error in
+                guard let self = self else { return }
+                
+                if let error = error {
+                    Task { @MainActor in
+                        if error.localizedDescription.contains("espresso") {
+                            self.errorMessage = "Vision Framework tidak tersedia di simulator. Gunakan device fisik untuk hasil terbaik."
+                        } else {
+                            self.errorMessage = "Recognition failed: \(error.localizedDescription)"
+                        }
+                        self.isProcessing = false
                     }
-                    self.isProcessing = false
+                    return
                 }
-                return
-            }
-            
-            guard let observations = request.results as? [VNClassificationObservation] else {
+                
+                guard let observations = request.results as? [VNClassificationObservation] else {
+                    Task { @MainActor in
+                        self.errorMessage = "No recognition results found"
+                        self.isProcessing = false
+                    }
+                    return
+                }
+                
+                let results = observations.prefix(5).map { observation in
+                    RecognitionResult(
+                        identifier: observation.identifier,
+                        confidence: observation.confidence,
+                        localizedName: self.getLocalizedName(for: observation.identifier)
+                    )
+                }.filter { $0.confidence > 0.1 }
+                
                 Task { @MainActor in
-                    self.errorMessage = "No recognition results found"
+                    self.recognitionResults = Array(results)
                     self.isProcessing = false
                 }
-                return
             }
-            
-            // Process results
-            let results = observations.prefix(5).map { observation in
-                RecognitionResult(
-                    identifier: observation.identifier,
-                    confidence: observation.confidence,
-                    localizedName: self.getLocalizedName(for: observation.identifier)
-                )
-            }.filter { $0.confidence > 0.1 } // Filter low confidence results
-            
-            Task { @MainActor in
-                self.recognitionResults = Array(results)
-                self.isProcessing = false
+        } else {
+            request = VNClassifyImageRequest { [weak self] request, error in
+                guard let self = self else { return }
+                
+                if let error = error {
+                    Task { @MainActor in
+                        // Handle specific Vision Framework errors
+                        if error.localizedDescription.contains("espresso") {
+                            self.errorMessage = "Vision Framework tidak tersedia di simulator. Gunakan device fisik untuk hasil terbaik."
+                        } else {
+                            self.errorMessage = "Recognition failed: \(error.localizedDescription)"
+                        }
+                        self.isProcessing = false
+                    }
+                    return
+                }
+                
+                guard let observations = request.results as? [VNClassificationObservation] else {
+                    Task { @MainActor in
+                        self.errorMessage = "No recognition results found"
+                        self.isProcessing = false
+                    }
+                    return
+                }
+                
+                // Process results
+                let results = observations.prefix(5).map { observation in
+                    RecognitionResult(
+                        identifier: observation.identifier,
+                        confidence: observation.confidence,
+                        localizedName: self.getLocalizedName(for: observation.identifier)
+                    )
+                }.filter { $0.confidence > 0.1 } // Filter low confidence results
+                
+                Task { @MainActor in
+                    self.recognitionResults = Array(results)
+                    self.isProcessing = false
+                }
             }
         }
         
