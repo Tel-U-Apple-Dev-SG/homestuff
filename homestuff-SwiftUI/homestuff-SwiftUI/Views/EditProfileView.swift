@@ -116,8 +116,9 @@ struct ContainerEdit: View {
                     Text(UserName)
                     Spacer()
                 }
-                TextField(PlaceHolder, text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                TextField(PlaceHolder, text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/, prompt: Text(PlaceHolder).foregroundColor(.gray))
                     .padding(.all)
+                    .foregroundColor(.black)
                     .background(RoundedRectangle(cornerRadius: 25)
                         .fill( Color(red: 0.96, green: 0.96, blue: 0.96)))
                     .overlay(RoundedRectangle(cornerRadius: 25)
